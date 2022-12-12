@@ -9,10 +9,18 @@
 #include <string>
 
 float radiusNumber;
-float volume;
+float volumeNumber;
 
-void volumeOfASphere() {
+float volumeOfASphere(float radius) {
     // Calculates a sphere's volume
+
+    float volume = (4.0 / 3.0) * M_PI * pow(radius, 3);
+
+    return volume;
+}
+
+int main() {
+    // Gets input and calls the function above
 
     std::cout << "This program calculates a sphere's surface volume.";
     std::cout << std::endl;
@@ -23,9 +31,9 @@ void volumeOfASphere() {
         std::cout << "Enter the sphere's radius: ";
         std::cin >> radiusText;
         radiusNumber = stof(radiusText);
-        volume = (4.0 / 3.0) * M_PI * pow(radiusNumber, 3);
+        volumeNumber = volumeOfASphere(radiusNumber);
         std::cout << std::endl;
-        std::cout << "This sphere's volume is " << volume << "cm³";
+        std::cout << "This sphere's volume is " << volumeNumber << "cm³";
         std::cout << std::endl;
     } catch (std::invalid_argument) {
         std::cout << "You did not input a number. (ValueError)";
@@ -34,10 +42,4 @@ void volumeOfASphere() {
 
     std::cout << std::endl;
     std::cout << "Done." << std::endl;
-}
-
-int main() {
-    // Calls a function
-
-    volumeOfASphere();
 }
